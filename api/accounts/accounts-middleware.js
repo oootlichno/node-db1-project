@@ -33,7 +33,7 @@ async function checkAccountPayload(req, res, next) {
 
 async function checkAccountNameUnique(req, res, next) {
   try {
-    const existingAccount = await Account.getAll().where('name', req.body.name.trim()).first(); // Check if name is unique
+    const existingAccount = await Account.getAll().where('name', req.body.name.trim()).first(); 
     if (existingAccount) {
       return res.status(400).json({ message: "that name is taken" });
     }
